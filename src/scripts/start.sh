@@ -40,5 +40,5 @@ screen -S Monitoring -X stuff "ssh -i pedabdcloud -X ubuntu@192.168.76.173
 screen -S Monitoring -X stuff "cd /home/ubuntu
 "
 
-screen -S Monitoring -X stuff "node main.js 225.0.1.5
+screen -S Monitoring -X stuff "node main.js 225.0.4.5
 "
