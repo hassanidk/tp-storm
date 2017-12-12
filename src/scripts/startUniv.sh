@@ -1,10 +1,3 @@
-
-# screen -dmS StartStream sh
-# screen -S StartStream -X stuff "ssh -i pedabdcloud -X ubuntu@192.168.76.173
-# "
-# screen -S StartStream -X stuff "./startStream.sh \"DECREVOISIER-HASSANI\" \"A5\" \"224.0.0.173\"
-# "
-
 screen -dmS zook sh
 screen -S zook -X stuff "ssh -i pedabdcloud -X ubuntu@192.168.76.173
 "
@@ -42,6 +35,6 @@ screen -S Monitoring -X stuff "ssh -i pedabdcloud -X ubuntu@192.168.76.173
 "
 screen -S Monitoring -X stuff "cd /home/ubuntu
 "
-screen -S Monitoring -X stuff "node main.js 225.0.0.173
+screen -S Monitoring -X stuff "node main.js 225.0.1.5
 "
 

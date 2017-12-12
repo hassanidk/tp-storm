@@ -81,6 +81,11 @@
 		<artifactId>storm-jdbc</artifactId>
 		<version>0.10.0-beta</version>
 	</dependency>-->
+	<dependency>
+		<groupId>org.json</groupId>
+		<artifactId>json</artifactId>
+		<version>20090211</version>
+		</dependency>
   </dependencies>
   <dependencyManagement>
   	<dependencies>
@@ -90,6 +95,7 @@
   			<version>1.0.2</version>
   			<scope>provided</scope>
   		</dependency>
+  		
   	</dependencies>
   </dependencyManagement>
   
