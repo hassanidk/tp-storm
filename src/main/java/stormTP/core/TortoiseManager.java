@@ -1,16 +1,13 @@
 package stormTP.core;
 
-import java.io.StringReader;
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Iterator;
 
 import javax.json.Json;
-import javax.json.JsonArray;
-import javax.json.JsonArrayBuilder;
-import javax.json.JsonObject;
 import javax.json.JsonObjectBuilder;
-import javax.json.JsonReader;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 /**
  Classe regroupant les fonctionnalités nécessaires au traitement des flux des coureurs
@@ -38,9 +35,25 @@ public class TortoiseManager {
 	public Runner filter(String input){
 		
 		Runner tortoise = null;
-		
-		//@TODO
-		
+		try {
+			JSONObject jobj = new JSONObject(input);
+			
+			JSONArray jarr = (JSONArray) jobj.get("tortoises");
+			JSONObject jTortoise = (JSONObject) jarr.get( (int)(dossard));
+			int top = jTortoise.getInt("top");
+	        int position = jTortoise.getInt("position");
+	        int nbDevant = jTortoise.getInt("nbDevant");
+	        int nbDerriere = jTortoise.getInt("nbDerriere");
+	        int total = jTortoise.getInt("total");
+	        tortoise = new Runner(dossard, nomsBinome,nbDevant, nbDerriere, total, position, top);
+		        
+			
+	       
+		} catch (JSONException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
 		
 		return tortoise;
 				

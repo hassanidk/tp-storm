@@ -10,3 +10,4 @@ target/test-classes
 .settings
 .project
 
+/target/

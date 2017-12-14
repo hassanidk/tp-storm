@@ -16,7 +16,7 @@ public class TopologyT2 {
 		int portINPUT = 9001;
 		int portOUTPUT = 9002;
 		String ipmINPUT = "224.0.0." + args[0];
-		String ipmOUTPUT = "225.0.0." + args[0];
+		String ipmOUTPUT = "225.0." + args[0] + "." + args[1];
     	
 		// Création du spout & topologie puis affectation
 		MasterInputStreamSpout spout = new MasterInputStreamSpout(portINPUT, ipmINPUT);
