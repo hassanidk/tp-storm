@@ -12,6 +12,8 @@ import org.apache.storm.tuple.Values;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import stormTP.core.Runner;
+import stormTP.core.TortoiseManager;
 import stormTP.stream.StreamEmiter;
 
 public class MyTortoiseBolt implements IRichBolt {
@@ -25,12 +27,15 @@ public class MyTortoiseBolt implements IRichBolt {
 	String ipM = "";
 	int port = -1;
 	StreamEmiter semit = null;
+	long dossard = -1;
+	String nomBinome = "DECREVOISIER-HASSANI";
 
 	
 	public MyTortoiseBolt (int port, String ip) {
 		this.port = port;
 		this.ipM = ip; 
 		this.semit = new StreamEmiter(this.port,this.ipM);
+		this.dossard = Long.valueOf(ip.split("\\.")[3]);
 		
 	}
 	@Override
@@ -44,41 +49,21 @@ public class MyTortoiseBolt implements IRichBolt {
 		// TODO Auto-generated method stub
 		
 		String json = t.getValueByField("json").toString();
-		try {
-			JSONObject jobj = new JSONObject(json);
-			long id = jobj.getLong("id");
-	        int top = jobj.getInt("top");
-	        int position = jobj.getInt("position");
-	        int nbDevant = jobj.getInt("nbDevant");
-	        int nbDerriere = jobj.getInt("nbDerriere");
-	        int total = jobj.getInt("total");
 		
-			JSONObject r = new JSONObject();
-
-		    r.put("id", id);
-		    r.put("top", top);
-		    r.put("nom", "okokokokoko");
-		    r.put("position", position);
-		    r.put("nbDevant", nbDevant);
-		    r.put("nbDerriere", nbDerriere);
-		    r.put("total", total);
-
+		TortoiseManager tortoiseManager = new TortoiseManager(dossard, nomBinome);
+		Runner tortoise = tortoiseManager.filter(json);
+		if (tortoise != null) {
 			
-			collector.emit(t,new Values(r.toString()));
-
-		
-		} catch (JSONException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			collector.emit(t,new Values(tortoise.getJSON_V1()));
 		}
-		
 	
-		
+	
+			
 	}
 
 	@Override
 	public void prepare(Map arg0, TopologyContext arg1, OutputCollector arg2) {
-		// TODO Auto-generated method stub
+		this.collector = arg2;
 		
 	}
 

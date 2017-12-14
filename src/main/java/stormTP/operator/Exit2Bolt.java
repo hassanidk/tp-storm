@@ -25,6 +25,7 @@ public class Exit2Bolt   extends ExitBolt implements IRichBolt {
 	
 	
 	
+	
 	public Exit2Bolt(int port, String ip) {
 		super(port, ip);
 		// TODO Auto-generated constructor stub
@@ -40,25 +41,31 @@ public class Exit2Bolt   extends ExitBolt implements IRichBolt {
 	@Override
 	public void execute(Tuple t) {
 		// TODO Auto-generated method stub
-			
-		String json = t.getValueByField("json").toString();
-		try {
-			JSONObject jobj = new JSONObject(json);
-			long id = jobj.getLong("id");
-			if (id == 0) {
-				String n = t.getValueByField("json").toString();
-				this.semit.send(n);
-				collector.ack(t);
-				
-				return;
-			}
-
-
-		} catch (JSONException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		String n = t.getValueByField("json").toString();
+		System.out.println(n);
+		this.semit.send(n);
+		collector.ack(t);
 		
+		return;
+//			
+//		String json = t.getValueByField("json").toString();
+//		try {
+//			JSONObject jobj = new JSONObject(json);
+//			long id = jobj.getLong("id");
+//			
+//				String n = t.getValueByField("json").toString();
+//				this.semit.send(n);
+//				collector.ack(t);
+//				
+//				return;
+//			
+//
+//
+//		} catch (JSONException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
+//		
 		
 	}
 
