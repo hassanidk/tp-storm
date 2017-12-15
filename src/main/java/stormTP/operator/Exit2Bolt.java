@@ -11,9 +11,10 @@ import org.apache.storm.tuple.Tuple;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import stormTP.core.Runner;
 import stormTP.stream.StreamEmiter;
 
-public class Exit2Bolt   extends ExitBolt implements IRichBolt {
+public class Exit2Bolt implements IRichBolt {
 	/**
 	 * 
 	 */
@@ -27,8 +28,9 @@ public class Exit2Bolt   extends ExitBolt implements IRichBolt {
 	
 	
 	public Exit2Bolt(int port, String ip) {
-		super(port, ip);
-		// TODO Auto-generated constructor stub
+		this.port = port;
+		this.ipM = ip; 
+		this.semit = new StreamEmiter(this.port,this.ipM);
 	}
 
 	
@@ -41,31 +43,22 @@ public class Exit2Bolt   extends ExitBolt implements IRichBolt {
 	@Override
 	public void execute(Tuple t) {
 		// TODO Auto-generated method stub
-		String n = t.getValueByField("json").toString();
-		System.out.println(n);
+		
+	
+		String nom = t.getStringByField("nom");
+		long id = t.getLongByField("id");
+		long top =  t.getLongByField("top");
+		int position = t.getIntegerByField("position");
+		int nbDevant = t.getIntegerByField("nbDevant");
+		int nbDerriere = t.getIntegerByField("nbDerriere");
+		int total = t.getIntegerByField("total");
+		
+		Runner r = new Runner(id, nom, nbDevant,nbDerriere,total, position, top );
+		String n = r.getJSON_V1();
 		this.semit.send(n);
 		collector.ack(t);
 		
 		return;
-//			
-//		String json = t.getValueByField("json").toString();
-//		try {
-//			JSONObject jobj = new JSONObject(json);
-//			long id = jobj.getLong("id");
-//			
-//				String n = t.getValueByField("json").toString();
-//				this.semit.send(n);
-//				collector.ack(t);
-//				
-//				return;
-//			
-//
-//
-//		} catch (JSONException e) {
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//		}
-//		
 		
 	}
 

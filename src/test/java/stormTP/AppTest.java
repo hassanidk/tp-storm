@@ -1,76 +1,76 @@
-//package stormTP;
-//
-//import junit.framework.Test;
-//import junit.framework.TestCase;
-//import junit.framework.TestSuite;
-//import stormTP.core.Stream;
-//import stormTP.core.TortoiseManager;
-//
-///**
-// * Unit test for simple App.
-// */
-//public class AppTest 
-//    extends TestCase
-//{
-//    /**
-//     * Create the test case
-//     *
-//     * @param testName name of the test case
-//     */
-//    public AppTest( String testName )
-//    {
-//        super( testName );
-//    }
-//
-//    /**
-//     * @return the suite of tests being tested
-//     */
-//    public static Test suite()
-//    {
-//        return new TestSuite( AppTest.class );
-//    }
-//
-//  
-//    
-//    /**
-//     * Test pour question 1
-//     */
-//    public void testTortoiseFilter()
-//    {
-//    	int dossard = 1;
-//    	String nomsBinome = "Toto-Titi";
-//    	
-//    	TortoiseManager tm = new TortoiseManager(dossard,nomsBinome);
-//    	
-//    	String input = "{ \"tortoises\":[ ";
-//    	input += "{\"id\":0,\"top\":896,\"position\":194,\"nbDevant\":4,\"nbDerriere\":5,\"total\":10},"; 
-//    	input += "{\"id\":1,\"top\":896,\"position\":189,\"nbDevant\":6,\"nbDerriere\":3,\"total\":10},";
-//    	input += "{\"id\":2,\"top\":896,\"position\":199,\"nbDevant\":2,\"nbDerriere\":7,\"total\":10},"; 
-//    	input += "{\"id\":3,\"top\":896,\"position\":185,\"nbDevant\":8,\"nbDerriere\":1,\"total\":10},"; 
-//    	input += "{\"id\":4,\"top\":896,\"position\":192,\"nbDevant\":5,\"nbDerriere\":4,\"total\":10},"; 
-//    	input += "{\"id\":5,\"top\":896,\"position\":182,\"nbDevant\":9,\"nbDerriere\":0,\"total\":10},"; 
-//    	input += "{\"id\":6,\"top\":896,\"position\":206,\"nbDevant\":1,\"nbDerriere\":8,\"total\":10},"; 
-//    	input += "{\"id\":7,\"top\":896,\"position\":198,\"nbDevant\":3,\"nbDerriere\":6,\"total\":10},"; 
-//    	input += "{\"id\":8,\"top\":896,\"position\":187,\"nbDevant\":7,\"nbDerriere\":2,\"total\":10},"; 
-//    	input += "{\"id\":9,\"top\":896,\"position\":217,\"nbDevant\":0,\"nbDerriere\":9,\"total\":10}";
-//    	input += "] }";
-//    	
-//    	String output = "{\"id\":1,\"top\":896,\"nom\":\""+nomsBinome+"\",\"position\":189,\"nbDevant\":6,\"nbDerriere\":3,\"total\":10}";
-// 	 
-//    	System.out.println("@Test testTortoiseFilter()");
-//    	
-//    	System.out.println("input: " +input);
-//    	
-//    	String result = tm.filter(input).getJSON_V1();
-// 	 
-//    	
-//    	System.out.println("output: " + output);
-//    	System.out.println("result: " + result);
-//    	System.out.println();
-//    	
-//    	 assertEquals(result , output );
-//    }
-//    
+package stormTP;
+
+import junit.framework.Test;
+import junit.framework.TestCase;
+import junit.framework.TestSuite;
+import stormTP.core.Stream;
+import stormTP.core.TortoiseManager;
+
+/**
+ * Unit test for simple App.
+ */
+public class AppTest 
+    extends TestCase
+{
+    /**
+     * Create the test case
+     *
+     * @param testName name of the test case
+     */
+    public AppTest( String testName )
+    {
+        super( testName );
+    }
+
+    /**
+     * @return the suite of tests being tested
+     */
+    public static Test suite()
+    {
+        return new TestSuite( AppTest.class );
+    }
+
+  
+    
+    /**
+     * Test pour question 1
+     */
+    public void testTortoiseFilter()
+    {
+    	int dossard = 5;
+    	String nomsBinome = "DECREVOISIER-HASSANI";
+  
+    	TortoiseManager tm = new TortoiseManager(dossard,nomsBinome);
+    	
+    	String input = "{ \"tortoises\":[ ";
+    	input += "{\"id\":0,\"top\":896,\"position\":194,\"nbDevant\":4,\"nbDerriere\":5,\"total\":10},"; 
+    	input += "{\"id\":1,\"top\":896,\"position\":189,\"nbDevant\":6,\"nbDerriere\":3,\"total\":10},";
+    	input += "{\"id\":2,\"top\":896,\"position\":199,\"nbDevant\":2,\"nbDerriere\":7,\"total\":10},"; 
+    	input += "{\"id\":3,\"top\":896,\"position\":185,\"nbDevant\":8,\"nbDerriere\":1,\"total\":10},"; 
+    	input += "{\"id\":4,\"top\":896,\"position\":192,\"nbDevant\":5,\"nbDerriere\":4,\"total\":10},"; 
+    	input += "{\"id\":5,\"top\":896,\"position\":182,\"nbDevant\":9,\"nbDerriere\":0,\"total\":10},"; 
+    	input += "{\"id\":6,\"top\":896,\"position\":206,\"nbDevant\":1,\"nbDerriere\":8,\"total\":10},"; 
+    	input += "{\"id\":7,\"top\":896,\"position\":198,\"nbDevant\":3,\"nbDerriere\":6,\"total\":10},"; 
+    	input += "{\"id\":8,\"top\":896,\"position\":187,\"nbDevant\":7,\"nbDerriere\":2,\"total\":10},"; 
+    	input += "{\"id\":9,\"top\":896,\"position\":217,\"nbDevant\":0,\"nbDerriere\":9,\"total\":10}";
+    	input += "] }";
+    	
+    	String output = "{\"id\":5,\"top\":896,\"nom\":\""+nomsBinome+"\",\"position\":182,\"nbDevant\":9,\"nbDerriere\":0,\"total\":10}";
+ 	 
+    	System.out.println("@Test testTortoiseFilter()");
+    	
+    	System.out.println("input: " +input);
+    	
+    	String result = tm.filter(input).getJSON_V1();
+ 	 
+    	
+    	System.out.println("output: " + output);
+    	System.out.println("result: " + result);
+    	System.out.println();
+    	
+    	 assertEquals(result , output );
+    }
+    
 //    
 //    /**
 //     * Test1 pour question 2
@@ -417,12 +417,12 @@
 //     	 assertEquals(result2 , output2 );
 //     
 //    
-//    
-//    }
-//    
-//
-//    
-//    
-//    
-//    
-//}
+    
+ //   }
+    
+
+    
+    
+    
+    
+}

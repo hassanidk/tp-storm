@@ -54,8 +54,17 @@ public class MyTortoiseBolt implements IRichBolt {
 		Runner tortoise = tortoiseManager.filter(json);
 		if (tortoise != null) {
 			
-			collector.emit(t,new Values(tortoise.getJSON_V1()));
+			//collector.emit(t,new Values(tortoise.getJSON_V1()));
+			collector.emit(t, new Values(tortoise.getId(),
+					tortoise.getNom(),
+					tortoise.getTop(), 
+					tortoise.getPosition(), 
+					tortoise.getNbDevant(), 
+					tortoise.getNbDerriere(), 
+					tortoise.getTotal()));
+			collector.ack(t);
 		}
+		
 	
 	
 			
@@ -69,7 +78,7 @@ public class MyTortoiseBolt implements IRichBolt {
 
 	@Override
 	public void declareOutputFields(OutputFieldsDeclarer arg0) {
-		arg0.declare(new Fields("json"));
+		arg0.declare(new Fields("id", "nom", "top", "position", "nbDevant", "nbDerriere", "total"));
 		
 	}
 
