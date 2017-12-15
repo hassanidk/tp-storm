@@ -72,14 +72,18 @@ public class TortoiseManager {
 	 */
 	public Runner computeRank(long id, long top, String nom, int nbDevant, int nbDerriere, int total){
 		
-		Runner tortoise = new Runner();
-		
+		Runner tortoise = null;
 		//@TODO
-		
-	
+		String rank = String.valueOf(total - nbDerriere);
+		int execo = nbDevant + nbDerriere + 1;
+		if (execo != total)
+			rank = rank + "ex";
+		tortoise = new Runner(id, nom, nbDevant, nbDerriere, total, 0, top);
+		tortoise.setRang(rank);
 		return tortoise;
 	}
 	
+
 	
 	/**
 	 * Permet de calculer les points bonus d'un coureur

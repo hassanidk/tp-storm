@@ -11,9 +11,10 @@ import org.apache.storm.tuple.Tuple;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import stormTP.core.Runner;
 import stormTP.stream.StreamEmiter;
 
-public class Exit3Bolt   extends ExitBolt implements IRichBolt {
+public class Exit3Bolt implements IRichBolt {
 	/**
 	 * 
 	 */
@@ -26,8 +27,9 @@ public class Exit3Bolt   extends ExitBolt implements IRichBolt {
 	
 	
 	public Exit3Bolt(int port, String ip) {
-		super(port, ip);
-		// TODO Auto-generated constructor stub
+		this.port = port;
+		this.ipM = ip; 
+		this.semit = new StreamEmiter(this.port,this.ipM);
 	}
 
 	
@@ -41,11 +43,19 @@ public class Exit3Bolt   extends ExitBolt implements IRichBolt {
 	public void execute(Tuple t) {
 		// TODO Auto-generated method stub
 			
-
-		String n = t.getValueByField("json").toString();
+		String nom = t.getStringByField("nom");
+		long id = t.getLongByField("id");
+		long top =  t.getLongByField("top");
+		String rank = t.getStringByField("rank");
+		int total = t.getIntegerByField("total");
+		
+		Runner r = new Runner(id, nom, 0,0,total, 0, top );
+		r.setRang(rank);
+		String n = r.getJSON_V2();
 		this.semit.send(n);
 		collector.ack(t);
 		
+		return;
 
 
 
