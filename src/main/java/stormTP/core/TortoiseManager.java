@@ -93,11 +93,10 @@ public class TortoiseManager {
 	 */
 	public static int computePoints(String rang,  int total){
 		
-                int points = -1;
-                
-                //@TODO
-		
-		
+		int intRang =  Integer.parseInt(rang.replaceAll("ex", ""));
+		int points = -1;
+        points = total - intRang;
+
 		return points;	
 		
 		

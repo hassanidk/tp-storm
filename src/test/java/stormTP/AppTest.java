@@ -71,124 +71,124 @@ public class AppTest
     	 assertEquals(result , output );
     }
     
-//    
-//    /**
-//     * Test1 pour question 2
-//     */
-//    public void test1TortoisecomputeRank()
-//    {
-//    	int dossard = 1;
-//    	String nomsBinome = "Toto-Titi";
-//    	
-//    	TortoiseManager tm = new TortoiseManager(dossard,nomsBinome);
-//    	
-//    	String input = "{\"id\":1,\"top\":896,\"nom\":\""+nomsBinome+"\",\"position\":189,\"nbDevant\":6,\"nbDerriere\":3,\"total\":10}";
-//    	String output = "{\"id\":1,\"top\":896,\"nom\":\""+nomsBinome+"\",\"rang\":\"7\",\"nbTotal\":10}";
-//    	 
-//      	System.out.println("@Test test1TortoiseComputeRank()");
-//      	
-//    	System.out.println("input: " +input);
-//    	
-//    	String result = tm.computeRank(1, 896, nomsBinome, 6, 3, 10).getJSON_V2();
-// 	 
-//  
-//    	System.out.println("output: " + output);
-//    	System.out.println("result: " + result);
-//    	System.out.println();
-//    	
-//    	 assertEquals(result , output );
-//    }
-//    
-//    
-//    /**
-//     * Test2 pour question 2
-//     */
-//    public void test2TortoisecomputeRank()
-//    {
-//    	int dossard = 1;
-//    	String nomsBinome = "Toto-Titi";
-//    	
-//    	TortoiseManager tm = new TortoiseManager(dossard,nomsBinome);
-//    	
-//    	String input = "{\"id\":3,\"top\":3,\"nom\":\""+nomsBinome+"\",\"position\":2,\"nbDevant\":1,\"nbDerriere\":4,\"total\":10}";
-//    	String output = "{\"id\":3,\"top\":3,\"nom\":\""+nomsBinome+"\",\"rang\":\"2ex\",\"nbTotal\":10}";
-//    	 
-//      	System.out.println("@Test test2TortoiseComputeRank()");
-//      	
-//    	System.out.println("input: " +input);
-//    	
-//    	String result = tm.computeRank(3, 3, nomsBinome, 1, 4, 10).getJSON_V2();
-// 	 
-//  
-//    	System.out.println("output: " + output);
-//    	System.out.println("result: " + result);
-//    	System.out.println();
-//    	
-//    	 assertEquals(result , output );
-//    }
-//    
-//    
-//    
-//    /**
-//     * Test1 pour question 3
-//     */
-//    public void test1TortoisecomputePoints()
-//    {
-//    	int dossard = 1;
-//    	String nomsBinome = "Toto-Titi";
-//    	
-//    	TortoiseManager tm = new TortoiseManager(dossard,nomsBinome);
-//    	
-//    	String input = "(\"4\", 10)";
-//    	
-//    	
-//      	System.out.println("@Test test1TortoiseComputePoints()");
-//      	
-//    	System.out.println("input: " +input);
-//    	
-//    	int output = tm.computePoints("4", 10);
-//    	int result = 6;
-//    	
-//  
-//    	System.out.println("output: " + output);
-//    	System.out.println("result: " + result);
-//    	System.out.println();
-//    	
-//    	 assertEquals(result , output );
-//    }
-//    
-//    
-//    
-//    /**
-//     * Test2 pour question 3
-//     */
-//
-//    public void test2TortoisecomputePoints()
-//    {
-//    	int dossard = 1;
-//    	String nomsBinome = "Toto-Titi";
-//    	
-//    	TortoiseManager tm = new TortoiseManager(dossard,nomsBinome);
-//    	
-//    	String input = "(\"2ex\", 10)";
-//    	
-//    	
-//      	System.out.println("@Test test1TortoiseComputePoints()");
-//      	
-//    	System.out.println("input: " +input);
-//    	
-//    	int output = tm.computePoints("2ex", 10);
-//    	int result = 8;
-//    	
-//  
-//    	System.out.println("output: " + output);
-//    	System.out.println("result: " + result);
-//    	System.out.println();
-//    	
-//    	 assertEquals(result , output );
-//    }
-//    
-//    
+    
+    /**
+     * Test1 pour question 2
+     */
+    public void test1TortoisecomputeRank()
+    {
+    	int dossard = 5;
+    	String nomsBinome = "DECREVOISIER-HASSANI";
+    	
+    	TortoiseManager tm = new TortoiseManager(dossard,nomsBinome);
+    	
+    	String input = "{\"id\":5,\"top\":896,\"nom\":\""+nomsBinome+"\",\"position\":189,\"nbDevant\":6,\"nbDerriere\":3,\"total\":10}";
+    	String output = "{\"id\":5,\"top\":896,\"nom\":\""+nomsBinome+"\",\"rang\":\"7\",\"nbTotal\":10}";
+    	 
+      	System.out.println("@Test test1TortoiseComputeRank()");
+      	
+    	System.out.println("input: " +input);
+    	
+    	String result = tm.computeRank(5, 896, nomsBinome, 6, 3, 10).getJSON_V2();
+ 	 
+  
+    	System.out.println("output: " + output);
+    	System.out.println("result: " + result);
+    	System.out.println();
+    	
+    	 assertEquals(result , output );
+    }
+    
+    
+    /**
+     * Test2 pour question 2
+     */
+    public void test2TortoisecomputeRank()
+    {
+    	int dossard = 5;
+    	String nomsBinome = "DECREVOISIER-HASSANI";
+    	
+    	TortoiseManager tm = new TortoiseManager(dossard,nomsBinome);
+    	
+    	String input = "{\"id\":5,\"top\":3,\"nom\":\""+nomsBinome+"\",\"position\":2,\"nbDevant\":1,\"nbDerriere\":4,\"total\":10}";
+    	String output = "{\"id\":5,\"top\":3,\"nom\":\""+nomsBinome+"\",\"rang\":\"2ex\",\"nbTotal\":10}";
+    	 
+      	System.out.println("@Test test2TortoiseComputeRank()");
+      	
+    	System.out.println("input: " +input);
+    	
+    	String result = tm.computeRank(5, 3, nomsBinome, 1, 4, 10).getJSON_V2();
+ 	 
+  
+    	System.out.println("output: " + output);
+    	System.out.println("result: " + result);
+    	System.out.println();
+    	
+    	 assertEquals(result , output );
+    }
+    
+    
+    
+    /**
+     * Test1 pour question 3
+     */
+    public void test1TortoisecomputePoints()
+    {
+    	int dossard = 5;
+    	String nomsBinome = "DECREVOISIER-HASSANI";
+    	
+    	TortoiseManager tm = new TortoiseManager(dossard,nomsBinome);
+    	
+    	String input = "(\"4\", 10)";
+    	
+    	
+      	System.out.println("@Test test1TortoiseComputePoints()");
+      	
+    	System.out.println("input: " +input);
+    	
+    	int output = tm.computePoints("4", 10);
+    	int result = 6;
+    	
+  
+    	System.out.println("output: " + output);
+    	System.out.println("result: " + result);
+    	System.out.println();
+    	
+    	 assertEquals(result , output );
+    }
+    
+    
+    
+    /**
+     * Test2 pour question 3
+     */
+
+    public void test2TortoisecomputePoints()
+    {
+    	int dossard = 5;
+    	String nomsBinome = "DECREVOISIER-HASSANI";
+    	
+    	TortoiseManager tm = new TortoiseManager(dossard,nomsBinome);
+    	
+    	String input = "(\"2ex\", 10)";
+    	
+    	
+      	System.out.println("@Test test1TortoiseComputePoints()");
+      	
+    	System.out.println("input: " +input);
+    	
+    	int output = tm.computePoints("2ex", 10);
+    	int result = 8;
+    	
+  
+    	System.out.println("output: " + output);
+    	System.out.println("result: " + result);
+    	System.out.println();
+    	
+    	 assertEquals(result , output );
+    }
+    
+    
 //    /**
 //     * Test pour question 4
 //     */

@@ -154,6 +154,17 @@ public class Runner{
         return r.build().toString();
 	}
 
+	public String getJSON_V3(){
+		JsonObjectBuilder r = null;
+		r = Json.createObjectBuilder();
+		/* construction de l'objet JSON résultat */
+		r.add("id", this.id);
+		r.add("top", this.top);
+		r.add("nom", this.nom);
+        r.add("nbTotal", this.total);
+       
+        return r.build().toString();
+	}
 
 	
 }
