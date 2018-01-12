@@ -6,8 +6,9 @@ target/maven-archiver
 target/maven-status
 target/surefire-reports
 target/test-classes
+target/stormTP-0.1.jar
 .classpath
 .settings
 .project
 
-/target/
+
