@@ -46,7 +46,11 @@ public class ComputeBonusBolt extends BaseStatefulBolt<KeyValueState<String, Int
 
 		if (t.getLongByField("top") % 15 == 0) {
 	
-			int points = TortoiseManager.computePoints(t.getStringByField("rang"), t.getIntegerByField("total"));
+			int points = TortoiseManager.computePoints(t.getStringByField("rank"), t.getIntegerByField("total"));
+			System.out.println(kvState.get("pointBonus"));
+			System.out.println(bonus);
+			System.out.println(bonus + points);
+			
 			kvState.put("pointBonus", bonus + points);
 			collector.emit(t, new Values(t.getLongByField("id"),
 					t.getLongByField("top"), 
@@ -72,8 +76,8 @@ public class ComputeBonusBolt extends BaseStatefulBolt<KeyValueState<String, Int
     }
     
     @Override
-    public void declareOutputFields(OutputFieldsDeclarer declarer) {
-        declarer.declare(new Fields("json"));
+    public void declareOutputFields(OutputFieldsDeclarer arg0) {
+    	arg0.declare(new Fields("id", "top", "nom", "bonus"));
     }
 
 

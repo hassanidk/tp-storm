@@ -92,9 +92,10 @@ public class TortoiseManager {
 	 * @return nombre de points gagnés par le coureur
 	 */
 	public static int computePoints(String rang,  int total){
-		
-		int intRang =  Integer.parseInt(rang.replaceAll("ex", ""));
 		int points = -1;
+		int intRang =  Integer.parseInt(rang.replaceAll("ex", ""));		
+		if (rang.contains("ex"))
+			intRang += 1 ;	
         points = total - intRang;
 
 		return points;	
