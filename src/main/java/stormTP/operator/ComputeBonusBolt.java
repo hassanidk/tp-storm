@@ -42,20 +42,18 @@ public class ComputeBonusBolt extends BaseStatefulBolt<KeyValueState<String, Int
 
     @Override
     public void execute(Tuple t) {
-    	
-
+    		
+    		
 		if (t.getLongByField("top") % 15 == 0) {
 	
 			int points = TortoiseManager.computePoints(t.getStringByField("rank"), t.getIntegerByField("total"));
-			System.out.println(kvState.get("pointBonus"));
-			System.out.println(bonus);
-			System.out.println(bonus + points);
-			
-			kvState.put("pointBonus", bonus + points);
+		
+			kvState.put("pointBonus", kvState.get("pointBonus")+  points);
+			System.out.println("kvState = " + kvState.get("pointBonus"));
 			collector.emit(t, new Values(t.getLongByField("id"),
 					t.getLongByField("top"), 
 					t.getStringByField("nom"),
-					bonus + points
+					kvState.get("pointBonus")
 					));
 		
 		}    
@@ -65,8 +63,8 @@ public class ComputeBonusBolt extends BaseStatefulBolt<KeyValueState<String, Int
     @Override
     public void initState(KeyValueState<String, Integer> state) {
         kvState = state;
-        bonus = kvState.get("pointBonus", 0);
-
+        kvState.put("pointBonus", 0);
+        System.out.println(kvState);
         
     }
 

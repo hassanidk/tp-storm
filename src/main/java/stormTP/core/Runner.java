@@ -161,7 +161,7 @@ public class Runner{
 		r.add("id", this.id);
 		r.add("top", this.top);
 		r.add("nom", this.nom);
-        r.add("nbTotal", this.total);
+        r.add("score", this.total);
        
         return r.build().toString();
 	}
