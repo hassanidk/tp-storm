@@ -15,6 +15,8 @@ import org.apache.storm.tuple.Tuple;
 import org.apache.storm.tuple.Values;
 import org.apache.storm.windowing.TupleWindow;
 
+import stormTP.core.TortoiseManager;
+
 
 
 public class SpeedBolt extends BaseWindowedBolt {
@@ -30,24 +32,29 @@ public class SpeedBolt extends BaseWindowedBolt {
     public void execute(TupleWindow inputWindow) {
     	
     	int cpt = 0;
-    	     	
-     	for(Tuple t: inputWindow.get()) {
-     		cpt++;
-     	}
-     	
-     	
-     	JsonObjectBuilder r = Json.createObjectBuilder();
-     	r.add("test", "statelessWithWindow");
-		r.add("nbTuplesInWindow", cpt);
-	    JsonObject row = r.build();
+    	Tuple first = inputWindow.get().get(0);
+    	Tuple last = inputWindow.get().get(inputWindow.get().size());
+    	
+    	double speed = TortoiseManager.computeSpeed(first.getLongByField("top"),
+    			last.getLongByField("top"),
+    			first.getIntegerByField("position"),
+    			last.getIntegerByField("position"));
+    	
+    	String top = first.getLongByField("top") + "-" + last.getLongByField("top");
+
 	    
-        collector.emit(inputWindow.get(),new Values(row.toString()));
+        collector.emit(inputWindow.get().get(0),new Values(
+        		first.getLongByField("id"),
+        		first.getStringByField("nom"),
+        		top,
+        		speed));
+        
         
     }
 
     @Override
-    public void declareOutputFields(OutputFieldsDeclarer declarer) {
-        declarer.declare(new Fields("json"));
+    public void declareOutputFields(OutputFieldsDeclarer arg0) {
+    	arg0.declare(new Fields("id", "top", "nom", "vitesse"));
     }
 }
 

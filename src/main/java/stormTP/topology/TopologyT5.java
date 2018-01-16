@@ -3,8 +3,11 @@ package stormTP.topology;
 import org.apache.storm.Config;
 import org.apache.storm.StormSubmitter;
 import org.apache.storm.topology.TopologyBuilder;
+import org.apache.storm.topology.base.BaseWindowedBolt.Count;
 
+import stormTP.operator.Exit5Bolt;
 import stormTP.operator.MasterInputStreamSpout;
+import stormTP.operator.MyTortoiseBolt;
 import stormTP.operator.SpeedBolt;
 
 
@@ -24,7 +27,8 @@ public static void main(String[] args) throws Exception {
     /*Affectation à la topologie du spout*/
 	
     builder.setSpout("localStream", spout);
-    builder.setBolt("speedbolt",  new SpeedBolt ().withWindow(new Count(2), new Count(1)), nbExecutors).shuffleGrouping("localStream");
+    builder.setBolt("myTortoise",  new MyTortoiseBolt(portOUTPUT,ipmOUTPUT), nbExecutors).shuffleGrouping("localStream");
+    builder.setBolt("speedbolt",  new SpeedBolt ().withWindow(new Count(10), new Count(5)), nbExecutors).shuffleGrouping("myTortoise");
     builder.setBolt("exit", new Exit5Bolt(portOUTPUT, ipmOUTPUT), nbExecutors).shuffleGrouping("speedbolt");
    
     /*Création d'une configuration*/
