@@ -42,12 +42,12 @@ public class Exit4Bolt implements IRichBolt {
 	@Override
 	public void execute(Tuple t) {
 		// TODO Auto-generated method stub
-			
+		System.out.println("EXIT4BOLTDEBUT");
 		String nom = t.getStringByField("nom");
 		long id = t.getLongByField("id");
 		long top =  t.getLongByField("top");
-		int score = t.getInteger(3);
-		
+		int score = t.getIntegerByField("bonus");
+		System.out.println("OK");
 		Runner r = new Runner(id, nom, 0,0,score, 0, top );
 		String n = r.getJSON_V3();
 		this.semit.send(n);
