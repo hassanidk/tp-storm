@@ -33,7 +33,7 @@ public class SpeedBolt extends BaseWindowedBolt {
     	
     	int cpt = 0;
     	Tuple first = inputWindow.get().get(0);
-    	Tuple last = inputWindow.get().get(inputWindow.get().size()-1);
+    	Tuple last = inputWindow.get().get(inputWindow.get().size());
     	
     	double speed = TortoiseManager.computeSpeed(first.getLongByField("top"),
     			last.getLongByField("top"),

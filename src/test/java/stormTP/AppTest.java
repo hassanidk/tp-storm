@@ -219,141 +219,141 @@ public class AppTest
     }
     
     
-//    
-//    /**
-//     * Test1 pour question 5
-//     */
-//
-//    public void test1TortoiseRankEvolution()
-//    {
-//    	int dossard = 1;
-//    	String nomsBinome = "Toto-Titi";
-//    	
-//    	TortoiseManager tm = new TortoiseManager(dossard,nomsBinome);
-//    	
-//    	String input = "2, 2";
-//    	
-//
-//      	System.out.println("@Test test1TortoiseRankEvolution("+ input +")");
-//      	
-//    	System.out.println("input: " +input);
-//    	
-//    	String output = tm.giveRankEvolution(2, 2);
-//    	String result = TortoiseManager.CONST;
-//    	
-//  
-//    	System.out.println("output: " + output);
-//    	System.out.println("result: " + result);
-//    	System.out.println();
-//    	
-//    	 assertEquals(result , output );
-//    }
-//    
-//    /**
-//     * Test2 pour question 5
-//     */
-//
-//    public void test2TortoiseRankEvolution()
-//    {
-//    	int dossard = 1;
-//    	String nomsBinome = "Toto-Titi";
-//    	
-//    	TortoiseManager tm = new TortoiseManager(dossard,nomsBinome);
-//    	
-//    	String input = "1, 3";
-//    	
-//    	
-//      	System.out.println("@Test test2TortoiseRankEvolution("+ input +")");
-//      	
-//    	System.out.println("input: " +input);
-//    	
-//    	String output = tm.giveRankEvolution(1, 3);
-//    	String result = TortoiseManager.PROG;
-//    	
-//  
-//    	System.out.println("output: " + output);
-//    	System.out.println("result: " + result);
-//    	System.out.println();
-//    	
-//    	 assertEquals(result , output );
-//    }
-//    
-//    /**
-//     * Test3 pour question 5
-//     */
-//
-//    public void test3TortoiseRankEvolution()
-//    {
-//    	int dossard = 1;
-//    	String nomsBinome = "Toto-Titi";
-//    	
-//    	TortoiseManager tm = new TortoiseManager(dossard,nomsBinome);
-//    	
-//    	String input = "6, 2";
-//    	
-//    	
-//      	System.out.println("@Test test3TortoiseRankEvolution("+ input +")");
-//      	
-//    	System.out.println("input: " +input);
-//    	
-//    	String output = tm.giveRankEvolution(6, 2);
-//    	String result = TortoiseManager.REGR;
-//    	
-//  
-//    	System.out.println("output: " + output);
-//    	System.out.println("result: " + result);
-//    	System.out.println();
-//    	
-//    	 assertEquals(result , output );
-//    }
-//    
-//    
-//    
-//    /**
-//     * Test4 pour question 5
-//     */
-//
-//    public void testTortoiseAverageRank()
-//    {
-//    	int dossard = 1;
-//    	String nomsBinome = "Toto-Titi";
-//    	
-//    	TortoiseManager tm = new TortoiseManager(dossard,nomsBinome);
-//    	
-//    	String[] input = new String[6];
-//    	input[0] = "2";
-//    	input[1] = "1ex";
-//    	input[2] = "3";
-//    	input[3] = "4ex";
-//    	input[4] = "2ex";
-//    	input[5] = "1";
-//    	
-//    	
-//      	System.out.println("@Test testGiveAverageRank()");
-//      	
-//    	System.out.println("input: " + get(input));
-//    	
-//    	int output = tm.giveAverageRank(input);
-//    	int result = 2;
-//    	
-//  
-//    	System.out.println("output: " + output);
-//    	System.out.println("result: " + result);
-//    	System.out.println();
-//    	
-//    	 assertEquals(result , output );
-//    }
-//    
-//    
-//    private static String get(String[] t){
-//    	String res = " ";
-//    	for(int i = 0; i < t.length -1; i++){
-//    		res += t[i] + ", ";
-//    	}
-//    	res += t[t.length -1] + " ";
-//    	return res;
-//    }
-//    
+    
+    /**
+     * Test1 pour question 5
+     */
+
+    public void test1TortoiseRankEvolution()
+    {
+    	int dossard = 5;
+    	String nomsBinome = "DECREVOISIER-HASSANI";
+    	
+    	TortoiseManager tm = new TortoiseManager(dossard,nomsBinome);
+    	
+    	String input = "2, 2";
+    	
+
+      	System.out.println("@Test test1TortoiseRankEvolution("+ input +")");
+      	
+    	System.out.println("input: " +input);
+    	
+    	String output = tm.giveRankEvolution(2, 2);
+    	String result = TortoiseManager.CONST;
+    	
+  
+    	System.out.println("output: " + output);
+    	System.out.println("result: " + result);
+    	System.out.println();
+    	
+    	 assertEquals(result , output );
+    }
+    
+    /**
+     * Test2 pour question 5
+     */
+
+    public void test2TortoiseRankEvolution()
+    {
+    	int dossard = 5;
+    	String nomsBinome = "DECREVOISIER-HASSANI";
+    	
+    	TortoiseManager tm = new TortoiseManager(dossard,nomsBinome);
+    	
+    	String input = "1, 3";
+    	
+    	
+      	System.out.println("@Test test2TortoiseRankEvolution("+ input +")");
+      	
+    	System.out.println("input: " +input);
+    	
+    	String output = tm.giveRankEvolution(1, 3);
+    	String result = TortoiseManager.PROG;
+    	
+  
+    	System.out.println("output: " + output);
+    	System.out.println("result: " + result);
+    	System.out.println();
+    	
+    	 assertEquals(result , output );
+    }
+    
+    /**
+     * Test3 pour question 5
+     */
+
+    public void test3TortoiseRankEvolution()
+    {
+    	int dossard = 5;
+    	String nomsBinome = "DECREVOISIER-HASSANI";
+    	
+    	TortoiseManager tm = new TortoiseManager(dossard,nomsBinome);
+    	
+    	String input = "6, 2";
+    	
+    	
+      	System.out.println("@Test test3TortoiseRankEvolution("+ input +")");
+      	
+    	System.out.println("input: " +input);
+    	
+    	String output = tm.giveRankEvolution(6, 2);
+    	String result = TortoiseManager.REGR;
+    	
+  
+    	System.out.println("output: " + output);
+    	System.out.println("result: " + result);
+    	System.out.println();
+    	
+    	 assertEquals(result , output );
+    }
+    
+    
+    
+    /**
+     * Test4 pour question 5
+     */
+
+    public void testTortoiseAverageRank()
+    {
+    	int dossard = 1;
+    	String nomsBinome = "Toto-Titi";
+    	
+    	TortoiseManager tm = new TortoiseManager(dossard,nomsBinome);
+    	
+    	String[] input = new String[6];
+    	input[0] = "2";
+    	input[1] = "1ex";
+    	input[2] = "3";
+    	input[3] = "4ex";
+    	input[4] = "2ex";
+    	input[5] = "1";
+    	
+    	
+      	System.out.println("@Test testGiveAverageRank()");
+      	
+    	System.out.println("input: " + get(input));
+    	
+    	int output = tm.giveAverageRank(input);
+    	int result = 2;
+    	
+  
+    	System.out.println("output: " + output);
+    	System.out.println("result: " + result);
+    	System.out.println();
+    	
+    	 assertEquals(result , output );
+    }
+    
+    
+    private static String get(String[] t){
+    	String res = " ";
+    	for(int i = 0; i < t.length -1; i++){
+    		res += t[i] + ", ";
+    	}
+    	res += t[t.length -1] + " ";
+    	return res;
+    }
+    
 //    
 //    /**
 //     * Test pour partie 4

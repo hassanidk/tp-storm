@@ -131,7 +131,10 @@ public class TortoiseManager {
 				
 		
 		int rang = 0;
-		
+		for (String stringRang : rangs) {
+			rang += Integer.parseInt(stringRang.replace("ex", ""));
+		}
+		rang /= rangs.length;
 		//@TODO
 		
 		return rang;
@@ -147,13 +150,11 @@ public class TortoiseManager {
 	 */
 	public static String giveRankEvolution(int cavg, int pavg){
 				
-		String evol = "";
-		
-		//@TODO
-		
-		
-		return evol;
-		
+		if (cavg - pavg == 0)
+			return CONST;
+		if (cavg - pavg < 0)
+			return PROG;
+		return REGR;
 		
 	}
 	
