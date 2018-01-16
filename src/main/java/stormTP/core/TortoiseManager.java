@@ -74,9 +74,9 @@ public class TortoiseManager {
 		
 		Runner tortoise = null;
 		//@TODO
-		String rank = String.valueOf(total - nbDerriere);
+		String rank = String.valueOf(nbDevant + 1);
 		int execo = nbDevant + nbDerriere + 1;
-		if (execo != total)
+		if (execo < total)
 			rank = rank + "ex";
 		tortoise = new Runner(id, nom, nbDevant, nbDerriere, total, 0, top);
 		tortoise.setRang(rank);
@@ -94,9 +94,7 @@ public class TortoiseManager {
 	public static int computePoints(String rang,  int total){
 		int points = -1;
 		int intRang =  Integer.parseInt(rang.replaceAll("ex", ""));		
-		if (rang.contains("ex"))
-			intRang += 1 ;	
-        points = total - intRang;
+        points = total - intRang ;
 
 		return points;	
 		
@@ -116,8 +114,9 @@ public class TortoiseManager {
 		
 		double vitesse = -0.0;
 		
-		//@TODO
-		
+		vitesse =(double)(posFin - posInit) / (double)(topFin - topInit);
+		vitesse *= 100;
+		vitesse = Math.floor(vitesse)/100;
 		return vitesse;
 		
 	}

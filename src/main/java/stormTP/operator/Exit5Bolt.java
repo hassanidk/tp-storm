@@ -44,8 +44,8 @@ public class Exit5Bolt implements IRichBolt {
 		System.out.println("EXIT4BOLTDEBUT");
 		String nom = t.getStringByField("nom");
 		long id = t.getLongByField("id");
-		long top =  t.getLongByField("top");
-		double speed = t.getDoubleByField("speed");
+		String top =  t.getStringByField("top");
+		double speed = t.getDoubleByField("vitesse");
 		
 		JSONObject jobj = new JSONObject();
 		try {
