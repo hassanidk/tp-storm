@@ -40,7 +40,7 @@ public class ComputePodiumBolt implements IRichBolt {
 			/* récupération du message */
 			String n = t.getValueByField("json").toString();
 			
-			String res = TortoiseManager.getPodium( n );
+			String res = TortoiseManager.getPodium(n);
 
 			  //Utils.sleep(100);
 			  logger.info("[ComputePodiumBolt] " + res);

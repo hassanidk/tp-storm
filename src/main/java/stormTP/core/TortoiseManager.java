@@ -1,6 +1,7 @@
 package stormTP.core;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 import javax.json.Json;
 import javax.json.JsonObjectBuilder;
@@ -165,15 +166,50 @@ public class TortoiseManager {
 	 * @return objet JSON correspondant au podium
 	 */
 	public static String getPodium(String input){
-				
-		JsonObjectBuilder r =  Json.createObjectBuilder();
 
-		//@TODO
-		
-		
-        
-		return r.build().toString();
-		
+		try {
+			JSONObject jobj = new JSONObject(input);
+			JSONArray jarr = (JSONArray) jobj.get("rabbits");
+			JSONObject jResult = new JSONObject();
+			
+			int compteur = 1;
+			
+			ArrayList<String> nomsLapins = new ArrayList<>();
+			
+			for (int i = 0; i < jarr.length(); i++){
+				if (compteur <= 3){
+					for (int j = 0; j < jarr.length(); j++){
+						JSONObject jTortoise = (JSONObject) jarr.get(j);
+						int nbDevant = jTortoise.getInt("nbDevant");
+						if (i == 0 & j ==0)
+							jResult.put("top",jTortoise.getInt("top"));
+						if (nbDevant == i)
+							nomsLapins.add(jTortoise.getString("nom"));
+					}
+					
+					if(!nomsLapins.isEmpty()){
+						Collections.sort(nomsLapins);
+						JSONArray jArrTemp = new JSONArray();
+						for (String s : nomsLapins){
+							JSONObject jObjTemp = new JSONObject();
+							jObjTemp.put("nom", s);
+							jArrTemp.put(jObjTemp);
+						}
+						jResult.put("marcheP" + compteur, jArrTemp);
+						compteur++;
+						nomsLapins.clear();
+					}
+				}
+			}
+			
+			System.out.println(jResult);
+			return jResult.toString();
+	       
+		} catch (JSONException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return "";
+		}
 						
 		
 	}

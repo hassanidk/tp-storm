@@ -354,71 +354,71 @@ public class AppTest
     	return res;
     }
     
-//    
-//    /**
-//     * Test pour partie 4
-//     */
-//    public void testPodium()
-//    {
-//    	
-//    	String input = "{ \"rabbits\":[ ";
-//    	input += "{\"id\":0,\"top\":896,\"nom\":\"RogerRabbit\",\"position\":194,\"nbDevant\":4,\"nbDerriere\":5,\"total\":10},"; 
-//    	input += "{\"id\":1,\"top\":896,\"nom\":\"BugsBunny\",\"position\":189,\"nbDevant\":6,\"nbDerriere\":3,\"total\":10},";
-//    	input += "{\"id\":2,\"top\":896,\"nom\":\"Panpan\",\"position\":199,\"nbDevant\":2,\"nbDerriere\":7,\"total\":10},"; 
-//    	input += "{\"id\":3,\"top\":896,\"nom\":\"Caerbannog\",\"position\":185,\"nbDevant\":8,\"nbDerriere\":1,\"total\":10},"; 
-//    	input += "{\"id\":4,\"top\":896,\"nom\":\"Oswald\",\"position\":192,\"nbDevant\":5,\"nbDerriere\":4,\"total\":10},"; 
-//    	input += "{\"id\":5,\"top\":896,\"nom\":\"Jojo\",\"position\":182,\"nbDevant\":9,\"nbDerriere\":0,\"total\":10},"; 
-//    	input += "{\"id\":6,\"top\":896,\"nom\":\"Coco\",\"position\":206,\"nbDevant\":1,\"nbDerriere\":8,\"total\":10},"; 
-//    	input += "{\"id\":7,\"top\":896,\"nom\":\"JuddyHopps\",\"position\":198,\"nbDevant\":3,\"nbDerriere\":6,\"total\":10},"; 
-//    	input += "{\"id\":8,\"top\":896,\"nom\":\"LapinBlanc\",\"position\":187,\"nbDevant\":7,\"nbDerriere\":2,\"total\":10},"; 
-//    	input += "{\"id\":9,\"top\":896,\"nom\":\"Basil\",\"position\":217,\"nbDevant\":0,\"nbDerriere\":9,\"total\":10}";
-//    	input += "] }";
-//    	
-//    	String input2 = "{ \"rabbits\":[ ";
-//    	input2 += "{\"id\":0,\"top\":123,\"nom\":\"RogerRabbit\",\"position\":4,\"nbDevant\":8,\"nbDerriere\":1,\"total\":10},"; 
-//    	input2 += "{\"id\":1,\"top\":123,\"nom\":\"BugsBunny\",\"position\":11,\"nbDevant\":4,\"nbDerriere\":4,\"total\":10},";
-//    	input2 += "{\"id\":2,\"top\":123,\"nom\":\"Panpan\",\"position\":15,\"nbDevant\":1,\"nbDerriere\":7,\"total\":10},"; 
-//    	input2 += "{\"id\":3,\"top\":123,\"nom\":\"Caerbannog\",\"position\":5,\"nbDevant\":7,\"nbDerriere\":2,\"total\":10},"; 
-//    	input2 += "{\"id\":4,\"top\":123,\"nom\":\"Oswald\",\"position\":11,\"nbDevant\":4,\"nbDerriere\":4,\"total\":10},"; 
-//    	input2 += "{\"id\":5,\"top\":123,\"nom\":\"Jojo\",\"position\":14,\"nbDevant\":3,\"nbDerriere\":6,\"total\":10},"; 
-//    	input2 += "{\"id\":6,\"top\":123,\"nom\":\"Coco\",\"position\":48,\"nbDevant\":0,\"nbDerriere\":9,\"total\":10},"; 
-//    	input2 += "{\"id\":7,\"top\":123,\"nom\":\"JuddyHopps\",\"position\":8,\"nbDevant\":6,\"nbDerriere\":3,\"total\":10},"; 
-//    	input2 += "{\"id\":8,\"top\":123,\"nom\":\"LapinBlanc\",\"position\":15,\"nbDevant\":1,\"nbDerriere\":7,\"total\":10},"; 
-//    	input2 += "{\"id\":9,\"top\":123,\"nom\":\"Basil\",\"position\":1,\"nbDevant\":9,\"nbDerriere\":0,\"total\":10}";
-//    	input2 += "] }";
-//    	
-//    	String output = "{\"top\":896,\"marcheP1\":[{\"nom\":\"Basil\"}],\"marcheP2\":[{\"nom\":\"Coco\"}],\"marcheP3\":[{\"nom\":\"Panpan\"}]}";
-//    	String output2 = "{\"top\":123,\"marcheP1\":[{\"nom\":\"Coco\"}],\"marcheP2\":[{\"nom\":\"LapinBlanc\"},{\"nom\":\"Panpan\"}],\"marcheP3\":[{\"nom\":\"Jojo\"}]}";
-//     	 
-//    	System.out.println("@Test testPodium()");
-//    	
-//    	System.out.println("input: " +input);
-//    	
-//    	String result = TortoiseManager.getPodium(input);
-// 	 
-//    	
-//    	System.out.println("output: " + output);
-//    	System.out.println("result: " + result);
-//    	System.out.println();
-//    	
-//    	 assertEquals(result , output );
-//    
-//    	 System.out.println("@Test2 testPodium()");
-//     	
-//     	System.out.println("input: " +input2);
-//     	
-//     	String result2 = TortoiseManager.getPodium(input2);
-//  	 
-//     	
-//     	System.out.println("output: " + output2);
-//     	System.out.println("result: " + result2);
-//     	System.out.println();
-//     	
-//     	 assertEquals(result2 , output2 );
-//     
-//    
     
- //   }
+    /**
+     * Test pour partie 4
+     */
+    public void testPodium()
+    {
+    	
+    	String input = "{ \"rabbits\":[ ";
+    	input += "{\"id\":0,\"top\":896,\"nom\":\"RogerRabbit\",\"position\":194,\"nbDevant\":4,\"nbDerriere\":5,\"total\":10},"; 
+    	input += "{\"id\":1,\"top\":896,\"nom\":\"BugsBunny\",\"position\":189,\"nbDevant\":6,\"nbDerriere\":3,\"total\":10},";
+    	input += "{\"id\":2,\"top\":896,\"nom\":\"Panpan\",\"position\":199,\"nbDevant\":2,\"nbDerriere\":7,\"total\":10},"; 
+    	input += "{\"id\":3,\"top\":896,\"nom\":\"Caerbannog\",\"position\":185,\"nbDevant\":8,\"nbDerriere\":1,\"total\":10},"; 
+    	input += "{\"id\":4,\"top\":896,\"nom\":\"Oswald\",\"position\":192,\"nbDevant\":5,\"nbDerriere\":4,\"total\":10},"; 
+    	input += "{\"id\":5,\"top\":896,\"nom\":\"Jojo\",\"position\":182,\"nbDevant\":9,\"nbDerriere\":0,\"total\":10},"; 
+    	input += "{\"id\":6,\"top\":896,\"nom\":\"Coco\",\"position\":206,\"nbDevant\":1,\"nbDerriere\":8,\"total\":10},"; 
+    	input += "{\"id\":7,\"top\":896,\"nom\":\"JuddyHopps\",\"position\":198,\"nbDevant\":3,\"nbDerriere\":6,\"total\":10},"; 
+    	input += "{\"id\":8,\"top\":896,\"nom\":\"LapinBlanc\",\"position\":187,\"nbDevant\":7,\"nbDerriere\":2,\"total\":10},"; 
+    	input += "{\"id\":9,\"top\":896,\"nom\":\"Basil\",\"position\":217,\"nbDevant\":0,\"nbDerriere\":9,\"total\":10}";
+    	input += "] }";
+    	
+    	String input2 = "{ \"rabbits\":[ ";
+    	input2 += "{\"id\":0,\"top\":123,\"nom\":\"RogerRabbit\",\"position\":4,\"nbDevant\":8,\"nbDerriere\":1,\"total\":10},"; 
+    	input2 += "{\"id\":1,\"top\":123,\"nom\":\"BugsBunny\",\"position\":11,\"nbDevant\":4,\"nbDerriere\":4,\"total\":10},";
+    	input2 += "{\"id\":2,\"top\":123,\"nom\":\"Panpan\",\"position\":15,\"nbDevant\":1,\"nbDerriere\":7,\"total\":10},"; 
+    	input2 += "{\"id\":3,\"top\":123,\"nom\":\"Caerbannog\",\"position\":5,\"nbDevant\":7,\"nbDerriere\":2,\"total\":10},"; 
+    	input2 += "{\"id\":4,\"top\":123,\"nom\":\"Oswald\",\"position\":11,\"nbDevant\":4,\"nbDerriere\":4,\"total\":10},"; 
+    	input2 += "{\"id\":5,\"top\":123,\"nom\":\"Jojo\",\"position\":14,\"nbDevant\":3,\"nbDerriere\":6,\"total\":10},"; 
+    	input2 += "{\"id\":6,\"top\":123,\"nom\":\"Coco\",\"position\":48,\"nbDevant\":0,\"nbDerriere\":9,\"total\":10},"; 
+    	input2 += "{\"id\":7,\"top\":123,\"nom\":\"JuddyHopps\",\"position\":8,\"nbDevant\":6,\"nbDerriere\":3,\"total\":10},"; 
+    	input2 += "{\"id\":8,\"top\":123,\"nom\":\"LapinBlanc\",\"position\":15,\"nbDevant\":1,\"nbDerriere\":7,\"total\":10},"; 
+    	input2 += "{\"id\":9,\"top\":123,\"nom\":\"Basil\",\"position\":1,\"nbDevant\":9,\"nbDerriere\":0,\"total\":10}";
+    	input2 += "] }";
+    	
+    	String output = "{\"top\":896,\"marcheP1\":[{\"nom\":\"Basil\"}],\"marcheP2\":[{\"nom\":\"Coco\"}],\"marcheP3\":[{\"nom\":\"Panpan\"}]}";
+    	String output2 = "{\"top\":123,\"marcheP1\":[{\"nom\":\"Coco\"}],\"marcheP2\":[{\"nom\":\"LapinBlanc\"},{\"nom\":\"Panpan\"}],\"marcheP3\":[{\"nom\":\"Jojo\"}]}";
+     	 
+    	System.out.println("@Test testPodium()");
+    	
+    	System.out.println("input: " +input);
+    	
+    	String result = TortoiseManager.getPodium(input);
+ 	 
+    	
+    	System.out.println("output: " + output);
+    	System.out.println("result: " + result);
+    	System.out.println();
+    	
+    	 assertEquals(result , output );
+    
+    	 System.out.println("@Test2 testPodium()");
+     	
+     	System.out.println("input: " +input2);
+     	
+     	String result2 = TortoiseManager.getPodium(input2);
+  	 
+     	
+     	System.out.println("output: " + output2);
+     	System.out.println("result: " + result2);
+     	System.out.println();
+     	
+     	 assertEquals(result2 , output2 );
+     
+    
+    
+   }
     
 
     
