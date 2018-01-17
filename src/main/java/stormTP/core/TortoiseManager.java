@@ -152,7 +152,7 @@ public class TortoiseManager {
 				
 		if (cavg - pavg == 0)
 			return CONST;
-		if (cavg - pavg < 0)
+		if (cavg - pavg <  0)
 			return PROG;
 		return REGR;
 		

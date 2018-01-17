@@ -50,7 +50,7 @@ public class TopologyT6 {
         config.setNumWorkers(1);
         /*La topologie est soumise à STORM*/
         
-        StormSubmitter.submitTopology("topoT3", config, builder.createTopology());
+        StormSubmitter.submitTopology("topoT6", config, builder.createTopology());
         
         
 }

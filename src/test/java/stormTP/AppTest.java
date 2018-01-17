@@ -315,8 +315,8 @@ public class AppTest
 
     public void testTortoiseAverageRank()
     {
-    	int dossard = 1;
-    	String nomsBinome = "Toto-Titi";
+    	int dossard = 5;
+    	String nomsBinome = "DECREVOISIER-HASSANI";
     	
     	TortoiseManager tm = new TortoiseManager(dossard,nomsBinome);
     	

@@ -15,13 +15,14 @@ import org.apache.storm.tuple.Tuple;
 import org.apache.storm.tuple.Values;
 import org.apache.storm.windowing.TupleWindow;
 
+import stormTP.core.TortoiseManager;
+
 
 
 public class RankEvolutionBolt extends BaseStatefulWindowedBolt<KeyValueState<String, Integer>> {
 	private static final long serialVersionUID = 4262379330788107343L;
     private  KeyValueState<String, Integer> state;
-    private  int sum;
-
+    
     private OutputCollector collector;
 
     @Override
@@ -32,37 +33,43 @@ public class RankEvolutionBolt extends BaseStatefulWindowedBolt<KeyValueState<St
     @Override
     public void initState(KeyValueState<String, Integer> state) {
         this.state = state;
-        sum = state.get("sum", 0);
-        System.out.println("initState with state [" + state + "] current sum [" + sum + "]");
+        state.put("rangMoyenPrecedent", 10);
+
+
     }
 
     @Override
     public void execute(TupleWindow inputWindow) {
-    	arg0.declare(new Fields("id", "nom", "top", "rank", "total"));
+    	
     	
     	int taille = inputWindow.get().size() - 1;
 		long minTop = inputWindow.get().get(0).getLongByField("top");
 		long maxTop = inputWindow.get().get(taille).getLongByField("top");
+		String tops = String.valueOf(minTop) + "-" + String.valueOf(maxTop);
+		String[] rangs =new String[taille + 1];
 		
+		int i = 0;
         for (Tuple t : inputWindow.get()) {
-        	
-    		
+        	rangs[i] = t.getStringByField("rank");
+        	i++;	
     	}
-        state.put("sum", cpt);
-        
-        JsonObjectBuilder r = Json.createObjectBuilder();
-        r.add("test", "statelessWithWindow");
-        r.add("nbNewTuples", cpt);
-		r.add("totalNumberOfTuples", cpt);
-        JsonObject row = r.build();
-	    
-        collector.emit(inputWindow.get(),new Values(row.toString()));
+        int rangMoyen = TortoiseManager.giveAverageRank(rangs);
+  
+        String evolution = TortoiseManager.giveRankEvolution(rangMoyen, state.get("rangMoyenPrecedent"));
+        state.put("rangMoyenPrecedent", rangMoyen);
+
+        collector.emit(inputWindow.get(),new Values(
+        		inputWindow.get().get(0).getLongByField("id"),
+        		inputWindow.get().get(0).getStringByField("nom"),
+        		tops,
+        		evolution
+        		));
         
     }
 
     @Override
     public void declareOutputFields(OutputFieldsDeclarer declarer) {
-        declarer.declare(new Fields("json"));
+        declarer.declare(new Fields("id", "nom", "tops", "evolution"));
     }
 }
 

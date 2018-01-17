@@ -44,15 +44,15 @@ public class Exit6Bolt implements IRichBolt {
 		
 		String nom = t.getStringByField("nom");
 		long id = t.getLongByField("id");
-		String top =  t.getStringByField("top");
-		double speed = t.getDoubleByField("vitesse");
+		String tops =  t.getStringByField("tops");
+		String evolution = t.getStringByField("evolution");
 		
 		JSONObject jobj = new JSONObject();
 		try {
 			jobj.put("id", id);
-			jobj.put("top", top);
 			jobj.put("nom", nom);
-			jobj.put("vitesse", speed);
+			jobj.put("tops", tops);
+			jobj.put("evolution", evolution);
 			
 		} catch (JSONException e) {
 			e.printStackTrace();
