@@ -31,23 +31,26 @@ public class SpeedBolt extends BaseWindowedBolt {
     @Override
     public void execute(TupleWindow inputWindow) {
     	
-    	int cpt = 0;
-    	Tuple first = inputWindow.get().get(0);
-    	Tuple last = inputWindow.get().get(inputWindow.get().size());
-    	
-    	double speed = TortoiseManager.computeSpeed(first.getLongByField("top"),
-    			last.getLongByField("top"),
-    			first.getIntegerByField("position"),
-    			last.getIntegerByField("position"));
-    	
-    	String top = String.valueOf(first.getLongByField("top")) + "-" + String.valueOf(last.getLongByField("top"));
-
-	    
-        collector.emit(inputWindow.get().get(0),new Values(
-        		first.getLongByField("id"),
-        		first.getStringByField("nom"),
-        		top,
-        		speed));
+    	int taille = inputWindow.get().size();
+    	if (taille == 10){
+	    	Tuple first = inputWindow.get().get(0);
+	    	Tuple last = inputWindow.get().get(taille - 1);
+	    	// Tuple last = inputWindow.get().get(inputWindow.get().size());
+	    	
+	    	double speed = TortoiseManager.computeSpeed(first.getLongByField("top"),
+	    			last.getLongByField("top"),
+	    			first.getIntegerByField("position"),
+	    			last.getIntegerByField("position"));
+	    	
+	    	String top = String.valueOf(first.getLongByField("top")) + "-" + String.valueOf(last.getLongByField("top"));
+	
+		    
+	        collector.emit(inputWindow.get().get(0),new Values(
+	        		first.getLongByField("id"),
+	        		first.getStringByField("nom"),
+	        		top,
+	        		speed));
+    	}
         
         
     }

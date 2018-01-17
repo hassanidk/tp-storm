@@ -38,11 +38,14 @@ public class RankEvolutionBolt extends BaseStatefulWindowedBolt<KeyValueState<St
 
     @Override
     public void execute(TupleWindow inputWindow) {
+    	arg0.declare(new Fields("id", "nom", "top", "rank", "total"));
     	
-    	int cpt = 0;
+    	int taille = inputWindow.get().size() - 1;
+		long minTop = inputWindow.get().get(0).getLongByField("top");
+		long maxTop = inputWindow.get().get(taille).getLongByField("top");
 		
         for (Tuple t : inputWindow.get()) {
-        	cpt++;
+        	
     		
     	}
         state.put("sum", cpt);
