@@ -34,9 +34,10 @@ public class ComputePodiumBolt implements IRichBolt {
 		 * @see org.apache.storm.topology.IRichBolt#execute(org.apache.storm.tuple.Tuple)
 		 */
 		public void execute(Tuple t) {
+			
 		
 			 logger.info("[ComputePodiumBolt] EXEC");
-					
+			System.out.println(t.size());	
 			/* récupération du message */
 			String n = t.getValueByField("json").toString();
 			
@@ -46,9 +47,11 @@ public class ComputePodiumBolt implements IRichBolt {
 			  logger.info("[ComputePodiumBolt] " + res);
 			  collector.emit(t, new Values(res));
 			  collector.ack(t);
-		}
-				
 			
+			  
+			 
+		}
+
 		
 		/* (non-Javadoc)
 		 * @see org.apache.storm.topology.IComponent#declareOutputFields(org.apache.storm.topology.OutputFieldsDeclarer)

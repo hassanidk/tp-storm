@@ -14,7 +14,7 @@ public class TopologyE1 {
 	
 	public static void main(String[] args) throws Exception {
 		
-	int nbExecutors = 1;
+	int nbExecutors = 4;
 		
     	HareSpout spout = new HareSpout(System.currentTimeMillis());
     	
@@ -34,7 +34,7 @@ public class TopologyE1 {
          */
         Config config = new Config();
         config.setDebug(true);
-        config.setNumWorkers(1);
+        config.setNumWorkers(4);
 		
 	/**
 	 * Call to the topology submitter for storm
